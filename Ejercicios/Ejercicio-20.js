@@ -18,14 +18,8 @@ OUTPUT:
 */
 
 const anagramas = (word1, word2) => {
-  word1 = word1
-    .toLowerCase()
-    .replace(/[.*+-?,]/g, "")
-    .split("");
-  word2 = word2
-    .toLowerCase()
-    .replace(/[.*+-?,]/g, "")
-    .split("");
+  word1 = word1.toLowerCase().replace(/[^\w]/gi, "").split("");
+  word2 = word2.toLowerCase().replace(/[^\w]/gi, "").split("");
 
   word1.sort();
   word2.sort();
