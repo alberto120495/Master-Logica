@@ -28,7 +28,7 @@ const deleteDuplicates = (array) => {
 };
 console.log(deleteDuplicates([1, 2, 1, 1, 1, 3, 4, "a"]));
 
-//!Solucion Curso
+//!Solucion Curso - MEJOR
 
 const deleteDuplicates = (array) => {
   array = array.filter((element) => typeof element === "number");
