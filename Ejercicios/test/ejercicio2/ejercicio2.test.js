@@ -1,4 +1,4 @@
-const isPalindrome = require("../../Ejercicio-2");
+const isPalindrome = require("../../2.-esPalindromo");
 
 test("debe comprobar si la funcion esta definida", () => {
   expect(isPalindrome).toBeDefined();
