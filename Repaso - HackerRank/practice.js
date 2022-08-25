@@ -1604,3 +1604,60 @@ function gradingStudents(grades) {
 }
 
 gradingStudents([73, 67, 38, 33]);
+
+
+
+
+//Memorizacion
+const memoization = (callback) => {
+  let result = {};
+  return function (...args) {
+    if (!result[`${args[0] - args[1]}`]) {
+      result[`${args[0] - args[1]}`] = callback(args[0], args[1]);
+    }
+    return result[`${args[0] - args[1]}`];
+  };
+};
+
+const suma = memoization((start, limit) => {
+  let result = 0;
+  for (let i = start; i < limit; i++) {
+    result += i;
+  }
+  return result;
+});
+
+//suma(2,100)
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  let apple = 0;
+  let orange = 0;
+
+  for (let i = 0; i < apples.length; i++) {
+    if (a + apples[i] >= s && a + apples[i] <= t) {
+      apple++;
+    }
+  }
+  for (let i = 0; i < oranges.length; i++) {
+    if (b + oranges[i] >= s && b + oranges[i] <= t) {
+      orange++;
+    }
+  }
+
+  console.log(apple);
+  console.log(orange);
+}
+
+//countApplesAndOranges(7, 10, 4, 12, [2, 3, -4], [3, -2, -4]);
+
+function kangaroo(x1, v1, x2, v2) {
+  if (v2 < v1) {
+    let valueXModulus = (x2 - x1) % (v1 - v2);
+    if (valueXModulus === 0) {
+      return "YES";
+    }
+  }
+  return "NO";
+}
+
+//kangaroo(0, 2, 5, 3);
