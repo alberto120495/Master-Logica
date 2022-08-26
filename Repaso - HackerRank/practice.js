@@ -1725,4 +1725,4 @@ const decimalToBinary = (decimal) => {
   return result.split("").reverse().join("");
 };
 
-//decimalToBinary(8);
+decimalToBinary(8);
