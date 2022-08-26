@@ -1545,13 +1545,13 @@ function timeConversion(s) {
     "07": "19",
     "08": "20",
     "09": "21",
-    "10": "22",
-    "11": "23",
-    "12": "12",
+    10: "22",
+    11: "23",
+    12: "12",
   };
 
   const mapAM = {
-    "12": "00",
+    12: "00",
     "01": "01",
     "02": "02",
     "03": "03",
@@ -1561,8 +1561,8 @@ function timeConversion(s) {
     "07": "07",
     "08": "08",
     "09": "09",
-    "10": "10",
-    "11": "11",
+    10: "10",
+    11: "11",
   };
 
   s = s.split("");
@@ -1590,23 +1590,20 @@ function gradingStudents(grades) {
 
   for (let i = 0; i < grades.length; i++) {
     let diference = (grades[i] % 5) - 5;
-    
-    if (grades[i] < 38 ) {
+
+    if (grades[i] < 38) {
       result.push(grades[i]);
-    }else if (grades[i] - grades[i] + Math.abs(diference) < 3) {
+    } else if (grades[i] - grades[i] + Math.abs(diference) < 3) {
       result.push(grades[i] + Math.abs(diference));
-    }else{
-      result.push(grades[i])
+    } else {
+      result.push(grades[i]);
     }
   }
-  
+
   return result;
 }
 
 gradingStudents([73, 67, 38, 33]);
-
-
-
 
 //Memorizacion
 const memoization = (callback) => {
@@ -1661,3 +1658,71 @@ function kangaroo(x1, v1, x2, v2) {
 }
 
 //kangaroo(0, 2, 5, 3);
+
+const integerToRoman = (number) => {
+  let romans = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I",
+  ];
+  let values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  let result = "";
+
+  for (let i = 0; i < values.length; i++) {
+    while (number >= values[i]) {
+      number = number - values[i];
+      result += romans[i];
+    }
+  }
+
+  return result;
+};
+
+//integerToRoman(150);
+
+function getMeta(url, callback) {
+  let img = new Image();
+  img.src = url;
+  img.onload = function () {
+    callback(this.width, this.height);
+  };
+}
+
+/*
+getMeta( "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png",
+  function(width, height) { console.log(width + 'px ' + height + 'px') }
+)
+*/
+
+const aspectRatio = (a, b) => {
+  return b == 0 ? a : aspectRatio(b, a % b);
+};
+
+//aspectRatio(1024, 768);
+
+const decimalToBinary = (decimal) => {
+  let result = "";
+  while (decimal >= 1) {
+    decimal = Math.floor(decimal);
+    if (decimal % 2 == 0) {
+      result += "0";
+    } else {
+      result += "1";
+    }
+    decimal = decimal / 2;
+  }
+
+  return result.split("").reverse().join("");
+};
+
+//decimalToBinary(8);
