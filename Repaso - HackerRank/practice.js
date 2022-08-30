@@ -1788,4 +1788,5 @@ const stringToMorse = (text) => {
   return result;
 };
 
+//Cambiar de texto a codigo morse
 stringToMorse("chocholate");
