@@ -1789,4 +1789,49 @@ const stringToMorse = (text) => {
 };
 
 //Cambiar de texto a codigo morse
-stringToMorse("chocholate");
+//stringToMorse("chocholate");
+
+
+
+
+function getTotalX(a, b) {
+  let result = 0;
+  let lcm = a[0];
+  let gcd = b[0];
+  let multiple = 0;
+
+  for (let element of a) {
+    lcm = getLCM(lcm, element);
+  }
+
+  for (let element of b) {
+    gcd = getGCD(gcd, element);
+  }
+
+  while (multiple <= gcd) {
+    multiple += lcm;
+
+    if (gcd % multiple == 0) {
+      result++;
+    }
+  }
+  return result;
+}
+
+function getLCM(a, b) {
+  if (a == 0 || b == 0) {
+    return 0;
+  } else {
+    let gcd = getGCD(a, b);
+    return Math.abs(a * b) / gcd;
+  }
+}
+
+function getGCD(a, b) {
+  if (b == 0) {
+    return a;
+  }
+  return getGCD(b, a % b);
+}
+
+getTotalX([2, 4], [16, 32, 96]);
