@@ -1848,3 +1848,19 @@ const maximoComunDivisor = (a, b) => {
   }
   return a;
 };
+
+
+//Conjuntos
+const conjuntos = (array, array2, isCommun) => {
+  let union = array.concat(array2).sort();
+
+  let comunes = array.filter((el) => array2.includes(el));
+
+  return isCommun ? comunes : union.filter((el) => !comunes.includes(el));
+};
+
+conjuntos([1, 2, 3, 4, 5], [2, 2, 3, 3, 3, 4, 6], true);
+
+
+
+
