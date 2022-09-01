@@ -1873,4 +1873,34 @@ const deleteDuplicados = (array) => {
 
 //deleteDuplicados([2, 2, 3, 3, 3, 4, 6]);
 
+const game = (array, array2) => {
+  let playerOne = 0;
+  let playerTwo = 0;
 
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== array2[i]) {
+      if (
+        (array[i] === "rock" && array2[i] === "scissors") ||
+        (array[i] === "paper" && array2[i] === "rock") ||
+        (array[i] === "scissors" && array2[i] === "paper")
+      ) {
+        playerOne++;
+      } else {
+        playerTwo++;
+      }
+    }
+  }
+
+  console.log(playerOne, playerTwo);
+
+  return playerOne === playerTwo
+    ? "Tie"
+    : playerOne > playerTwo
+    ? "PlayerOne"
+    : "PlayerTwo";
+};
+
+game(
+  ["rock", "paper", "scissors", "scissors", "rock"],
+  ["paper", "paper", "rock", "rock", "scissors"]
+);
