@@ -1863,4 +1863,14 @@ conjuntos([1, 2, 3, 4, 5], [2, 2, 3, 3, 3, 4, 6], true);
 
 
 
+const deleteDuplicados = (array) => {
+  let result = array.filter((item, index) => {
+    return array.indexOf(item) === index;
+  });
+
+  return result;
+};
+
+//deleteDuplicados([2, 2, 3, 3, 3, 4, 6]);
+
 
