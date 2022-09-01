@@ -1835,3 +1835,16 @@ function getGCD(a, b) {
 }
 
 getTotalX([2, 4], [16, 32, 96]);
+
+
+
+//maximoComunDivisor
+const maximoComunDivisor = (a, b) => {
+  let temporal; //Para no perder b
+  while (b !== 0) {
+    temporal = b;
+    b = a % b;
+    a = temporal;
+  }
+  return a;
+};
